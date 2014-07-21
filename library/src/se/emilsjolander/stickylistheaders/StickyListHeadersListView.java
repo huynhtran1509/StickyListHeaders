@@ -331,7 +331,7 @@ public class StickyListHeadersListView extends FrameLayout {
                 final View header = mAdapter.getHeaderView(mHeaderPosition, mHeader, this);
                 if (mHeader != header) {
                     if (header == null) {
-                        throw new NullPointerException("header may not be null");
+                        return;
                     }
                     swapHeader(header);
                 }
@@ -472,9 +472,7 @@ public class StickyListHeadersListView extends FrameLayout {
                 mOnScrollListenerDelegate.onScroll(view, firstVisibleItem,
                         visibleItemCount, totalItemCount);
             }
-            if (mHeader != null) {
-                updateOrClearHeader(mList.getFixedFirstVisibleItem());
-            }
+            updateOrClearHeader(mList.getFixedFirstVisibleItem());
         }
 
         @Override
