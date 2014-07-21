@@ -531,7 +531,7 @@ public class StickyListHeadersListView extends FrameLayout {
         if (!isStartOfSection) {
             View header = mAdapter.getHeaderView(position, null, mList);
             if (header == null) {
-                throw new NullPointerException("header may not be null");
+                return 0;
             }
             ensureHeaderHasCorrectLayoutParams(header);
             measureHeader(header);
